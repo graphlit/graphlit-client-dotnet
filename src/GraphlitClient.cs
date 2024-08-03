@@ -5,6 +5,7 @@ namespace GraphlitClient;
 public class Graphlit
 {
     private const string DEFAULT_URI = "https://data-scus.graphlit.io/api/v1/graphql";
+    private static readonly TimeSpan DEFAULT_TIMEOUT = TimeSpan.FromMinutes(10);
 
     private readonly Lazy<IGraphlitClient> _client;
 
@@ -28,6 +29,7 @@ public class Graphlit
         _client = new Lazy<IGraphlitClient>(ClientAccessor.GetClient(
             client =>
             {
+                client.Timeout = DEFAULT_TIMEOUT;
                 client.BaseAddress = apiUri ?? new Uri(DEFAULT_URI);
                 client.DefaultRequestHeaders.Add("Authorization", $"Bearer {token}");
             },
@@ -53,6 +55,7 @@ public class Graphlit
         _client = new Lazy<IGraphlitClient>(ClientAccessor.GetClient(
             client =>
             {
+                client.Timeout = DEFAULT_TIMEOUT;
                 client.BaseAddress = apiUri ?? new Uri(DEFAULT_URI);
                 client.DefaultRequestHeaders.Add("Authorization", $"Bearer {token}");
             },

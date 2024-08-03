@@ -57,26 +57,11 @@ steps:
     msbuildArchitecture: x64
 
 - task: DotNetCoreCLI@2
-  displayName: 'Pack the NuGet package'
-  inputs:
-    command: 'pack'
-    packagesToPack: '$(Build.ArtifactStagingDirectory)/*.csproj'
-    configuration: '$(BuildConfiguration)'
-    versioningScheme: 'byBuildNumber'
-    outputDir: '$(Build.ArtifactStagingDirectory)'
-
-- task: DotNetCoreCLI@2
   displayName: 'Push the NuGet package'
   inputs:
     command: 'push'
-    packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
     nuGetFeedType: 'external'
     publishVstsFeed: 'false'
     externalFeedEndpoint: 'NuGetOrg'
-
-- task: PublishBuildArtifacts@1
-  displayName: 'Publish build artifacts'
-  inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
+    allowPackageConflicts: true
+    verbosityPush: Normal
