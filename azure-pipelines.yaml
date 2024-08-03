@@ -56,10 +56,11 @@ steps:
     maximumCpuCount: true
     msbuildArchitecture: x64
 
-- task: DotNetCoreCLI@2
-  displayName: 'Push the NuGet package'
+- task: NuGetCommand@2
+  displayName: 'NuGet push'
   inputs:
     command: 'push'
+    feedsToUse: 'select'
     nuGetFeedType: 'external'
     publishVstsFeed: 'false'
     externalFeedEndpoint: 'NuGetOrg'
