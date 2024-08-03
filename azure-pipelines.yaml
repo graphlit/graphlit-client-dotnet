@@ -48,8 +48,9 @@ steps:
 - task: DotNetCoreCLI@2
   displayName: 'dotnet tool restore'
   inputs:
-    command: 'tool restore'
-    projects: '${{ variables.solutionName }}.sln'
+    command: 'custom'
+    custom: 'tool'
+    arguments: 'restore'
     feedsToUse: config
     nugetConfigPath: nuget.config
     verbosityRestore: 'Normal'
