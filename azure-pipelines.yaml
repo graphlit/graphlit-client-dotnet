@@ -45,6 +45,15 @@ steps:
     nugetConfigPath: nuget.config
     verbosityRestore: 'Normal'
 
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet tool restore'
+  inputs:
+    command: 'tool restore'
+    projects: '${{ variables.solutionName }}.sln'
+    feedsToUse: config
+    nugetConfigPath: nuget.config
+    verbosityRestore: 'Normal'
+
 - task: VSBuild@1
   displayName: 'Build solution ${{ variables.solutionName }}'
   inputs:
