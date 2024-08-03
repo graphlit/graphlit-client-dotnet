@@ -60,9 +60,8 @@ steps:
   displayName: 'NuGet push'
   inputs:
     command: 'push'
-    feedsToUse: 'select'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
     nuGetFeedType: 'external'
-    publishVstsFeed: 'false'
     externalFeedEndpoint: 'NuGetOrg'
     allowPackageConflicts: true
     verbosityPush: Normal
