@@ -55,6 +55,7 @@ steps:
     configuration: '$(BuildConfiguration)'
     maximumCpuCount: true
     msbuildArchitecture: x64
+    retryCount: 3
 
 - task: NuGetCommand@2
   displayName: 'NuGet push'
@@ -65,3 +66,4 @@ steps:
     externalFeedEndpoint: 'NuGetOrg'
     allowPackageConflicts: true
     verbosityPush: Normal
+    retryCount: 3
