@@ -56,21 +56,28 @@ steps:
     maximumCpuCount: true
     msbuildArchitecture: x64
 
-#- task: NuGetCommand@2
-# displayName: 'NuGet push'
-#  inputs:
-#    command: push
-#    feedsToUse: 'select'
-#    nuGetFeedType: 'internal'
-#    publishVstsFeed: 'graphlit-public-feed'
-#    allowPackageConflicts: true
-#    verbosityPush: Normal
+- task: DotNetCoreCLI@2
+  displayName: 'Pack the NuGet package'
+  inputs:
+    command: 'pack'
+    packagesToPack: '$(Build.ArtifactStagingDirectory)/*.csproj'
+    configuration: '$(BuildConfiguration)'
+    versioningScheme: 'byBuildNumber'
+    versioningScheme: 'byBuildNumber'
+    outputDir: '$(Build.ArtifactStagingDirectory)'
 
-#- task: PublishSymbols@2
-#  displayName: 'Publish symbols path'
-#  inputs:
-#    SearchPattern: '**\bin\**\*.pdb'
-#    SymbolServerType: TeamServices
-#    TreatNotIndexedAsWarning: true
-#    detailedLog: false
-#  continueOnError: true
+- task: DotNetCoreCLI@2
+  displayName: 'Push the NuGet package'
+  inputs:
+    command: 'push'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
+    nuGetFeedType: 'external'
+    publishVstsFeed: 'false'
+    externalFeedEndpoint: 'NuGetOrg'
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish build artifacts'
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
