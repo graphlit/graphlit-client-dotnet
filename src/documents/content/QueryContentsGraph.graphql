@@ -1,0 +1,17 @@
+query QueryContentsGraph($filter: ContentFilter, $graph: ContentGraphInput) {
+  contents(filter: $filter, graph: $graph) {
+    graph {
+      nodes {
+        id
+        name
+        type
+        metadata
+      }
+      edges {
+        from
+        to
+        relation
+      }
+    }
+  }
+}

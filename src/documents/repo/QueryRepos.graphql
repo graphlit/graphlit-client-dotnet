@@ -1,0 +1,12 @@
+query QueryRepos($filter: RepoFilter) {
+  repos(filter: $filter) {
+    results {
+      id
+      name
+      alternateNames
+      creationDate
+      thing
+      relevance
+    }
+  }
+}

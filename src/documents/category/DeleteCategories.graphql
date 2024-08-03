@@ -1,0 +1,6 @@
+mutation DeleteCategories($ids: [ID!]!, $isSynchronous: Boolean) {
+  deleteCategories(ids: $ids, isSynchronous: $isSynchronous) {
+    id
+    state
+  }
+}

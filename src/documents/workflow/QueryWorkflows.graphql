@@ -1,0 +1,139 @@
+query QueryWorkflows($filter: WorkflowFilter) {
+  workflows(filter: $filter) {
+    results {
+      id
+      name
+      creationDate
+      relevance
+      owner {
+        id
+      }
+      state
+      ingestion {
+        if {
+          types
+          fileTypes
+          allowedPaths
+          excludedPaths
+        }
+        collections {
+          id
+        }
+      }
+      indexing {
+        jobs {
+          connector {
+            type
+            contentType
+            fileType
+          }
+        }
+      }
+      preparation {
+        disableSmartCapture
+        summarizations {
+          type
+          specification {
+            id
+          }
+          tokens
+          items
+          prompt
+        }
+        jobs {
+          connector {
+            type
+            fileTypes
+            azureDocument {
+              version
+              model
+              endpoint
+              key
+            }
+            deepgram {
+              model
+              key
+              enableRedaction
+              enableSpeakerDiarization
+            }
+            document {
+              includeImages
+            }
+            email {
+              includeAttachments
+            }
+          }
+        }
+      }
+      extraction {
+        jobs {
+          connector {
+            type
+            contentTypes
+            fileTypes
+            extractedTypes
+            extractedCount
+            azureText {
+              confidenceThreshold
+              enablePII
+            }
+            azureImage {
+              confidenceThreshold
+            }
+            openAIImage {
+              confidenceThreshold
+              detailLevel
+              customInstructions
+            }
+            modelImage {
+              specification {
+                id
+              }
+            }
+            modelText {
+              specification {
+                id
+              }
+            }
+          }
+        }
+      }
+      enrichment {
+        link {
+          enableCrawling
+          allowedDomains
+          excludedDomains
+          allowedPaths
+          excludedPaths
+          allowedLinks
+          excludedLinks
+          allowedFiles
+          excludedFiles
+          allowContentDomain
+          maximumLinks
+        }
+        jobs {
+          connector {
+            type
+            enrichedTypes
+          }
+        }
+      }
+      storage {
+        embeddings {
+          chunkTokenLimit
+        }
+      }
+      actions {
+        connector {
+          type
+          uri
+          slack {
+            token
+            channel
+          }
+        }
+      }
+    }
+  }
+}

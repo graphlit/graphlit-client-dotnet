@@ -1,0 +1,19 @@
+query QueryPlaces($filter: PlaceFilter) {
+  places(filter: $filter) {
+    results {
+      id
+      name
+      alternateNames
+      creationDate
+      thing
+      relevance
+      address {
+        streetAddress
+        city
+        region
+        country
+        postalCode
+      }
+    }
+  }
+}

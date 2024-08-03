@@ -1,0 +1,6 @@
+mutation DeleteFeeds($ids: [ID!]!, $isSynchronous: Boolean) {
+  deleteFeeds(ids: $ids, isSynchronous: $isSynchronous) {
+    id
+    state
+  }
+}

@@ -1,0 +1,25 @@
+query QueryOrganizations($filter: OrganizationFilter) {
+  organizations(filter: $filter) {
+    results {
+      id
+      name
+      alternateNames
+      creationDate
+      thing
+      relevance
+      address {
+        streetAddress
+        city
+        region
+        country
+        postalCode
+      }
+      foundingDate
+      industries
+      revenue
+      revenueCurrency
+      investment
+      investmentCurrency
+    }
+  }
+}

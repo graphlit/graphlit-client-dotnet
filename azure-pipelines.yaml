@@ -1,0 +1,76 @@
+trigger:
+  branches:
+    include:
+      - main
+
+pool:
+  vmImage: "windows-2022"
+  demands:
+  - msbuild
+  - visualstudio
+
+name: $(Year:yyyy).$(Month).$(DayOfMonth)$(Rev:.r)
+
+variables:
+- group: platform-variable-group
+- name: solutionName
+  value: 'GraphlitClient'
+- name: NUGET_PACKAGES
+  value: $(Pipeline.Workspace)/.nuget/packages
+
+steps:
+- task: PowerShell@2
+  displayName: Add the NUGET_CERT_REVOCATION_MODE environment variable.
+  inputs:
+    targetType: 'inline'
+    script: |
+      Write-Host "##vso[task.setvariable variable=NUGET_CERT_REVOCATION_MODE;]offline"
+
+- task: UseDotNet@2
+  displayName: 'Use .NET 8.0 SDK'
+  inputs:
+    packageType: 'sdk'
+    version: '8.0.x'
+    includePreviewVersions: false
+      
+- task: NuGetAuthenticate@1
+  displayName: 'NuGet Authenticate'
+  
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet restore'
+  inputs:
+    command: 'restore'
+    projects: '${{ variables.solutionName }}.sln'
+    feedsToUse: config
+    nugetConfigPath: nuget.config
+    verbosityRestore: 'Normal'
+
+- task: VSBuild@1
+  displayName: 'Build solution ${{ variables.solutionName }}'
+  inputs:
+    solution: '${{ variables.solutionName }}.sln'
+    vsVersion: 'latest'
+    msbuildArgs: '/t:Build,Pack /p:Version=$(Build.BuildNumber) /p:PackageVersion=$(Build.BuildNumber) /p:PackageOutputPath=$(Build.ArtifactStagingDirectory)'
+    platform: '$(BuildPlatform)'
+    configuration: '$(BuildConfiguration)'
+    maximumCpuCount: true
+    msbuildArchitecture: x64
+
+#- task: NuGetCommand@2
+# displayName: 'NuGet push'
+#  inputs:
+#    command: push
+#    feedsToUse: 'select'
+#    nuGetFeedType: 'internal'
+#    publishVstsFeed: 'graphlit-public-feed'
+#    allowPackageConflicts: true
+#    verbosityPush: Normal
+
+#- task: PublishSymbols@2
+#  displayName: 'Publish symbols path'
+#  inputs:
+#    SearchPattern: '**\bin\**\*.pdb'
+#    SymbolServerType: TeamServices
+#    TreatNotIndexedAsWarning: true
+#    detailedLog: false
+#  continueOnError: true

@@ -1,0 +1,23 @@
+query GetOrganization($id: ID!) {
+  organization(id: $id) {
+    id
+    name
+    alternateNames
+    creationDate
+    thing
+    relevance
+    address {
+      streetAddress
+      city
+      region
+      country
+      postalCode
+    }
+    foundingDate
+    industries
+    revenue
+    revenueCurrency
+    investment
+    investmentCurrency
+  }
+}

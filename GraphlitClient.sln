@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GraphlitClient", "src\GraphlitClient.csproj", "{E0C1ED06-F553-4693-B647-3ACA5A39FF3D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CC5B03B1-11F6-4396-97C5-67A0B0653D42}"
+	ProjectSection(SolutionItems) = preProject
+		azure-pipelines.yaml = azure-pipelines.yaml
+		global.json = global.json
+		LICENSE = LICENSE
+		nuget.config = nuget.config
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GraphlitClient.Tests", "test\GraphlitClient.Tests\GraphlitClient.Tests.csproj", "{3E3D596E-662F-47E1-86F2-F8F0552803BB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E0C1ED06-F553-4693-B647-3ACA5A39FF3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0C1ED06-F553-4693-B647-3ACA5A39FF3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0C1ED06-F553-4693-B647-3ACA5A39FF3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0C1ED06-F553-4693-B647-3ACA5A39FF3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E3D596E-662F-47E1-86F2-F8F0552803BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E3D596E-662F-47E1-86F2-F8F0552803BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E3D596E-662F-47E1-86F2-F8F0552803BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E3D596E-662F-47E1-86F2-F8F0552803BB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {66CDD26E-2337-4C06-AEA8-B9701D543335}
+	EndGlobalSection
+EndGlobal

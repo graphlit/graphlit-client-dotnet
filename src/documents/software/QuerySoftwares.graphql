@@ -1,0 +1,14 @@
+query QuerySoftwares($filter: SoftwareFilter) {
+  softwares(filter: $filter) {
+    results {
+      id
+      name
+      alternateNames
+      creationDate
+      thing
+      relevance
+      releaseDate
+      developer
+    }
+  }
+}

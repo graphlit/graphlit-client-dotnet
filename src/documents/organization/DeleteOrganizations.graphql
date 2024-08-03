@@ -1,0 +1,6 @@
+mutation DeleteOrganizations($ids: [ID!]!, $isSynchronous: Boolean) {
+  deleteOrganizations(ids: $ids, isSynchronous: $isSynchronous) {
+    id
+    state
+  }
+}

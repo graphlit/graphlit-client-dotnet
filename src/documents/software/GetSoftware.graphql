@@ -1,0 +1,12 @@
+query GetSoftware($id: ID!) {
+  software(id: $id) {
+    id
+    name
+    alternateNames
+    creationDate
+    thing
+    relevance
+    releaseDate
+    developer
+  }
+}

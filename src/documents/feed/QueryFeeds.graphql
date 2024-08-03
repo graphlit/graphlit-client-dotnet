@@ -1,0 +1,157 @@
+query QueryFeeds($filter: FeedFilter) {
+  feeds(filter: $filter) {
+    results {
+      id
+      name
+      creationDate
+      relevance
+      owner {
+        id
+      }
+      state
+      correlationId
+      type
+      site {
+        siteType
+        type
+        isRecursive
+        s3 {
+          accessKey
+          secretAccessKey
+          bucketName
+          prefix
+          region
+        }
+        azureBlob {
+          storageAccessKey
+          accountName
+          containerName
+          prefix
+        }
+        azureFile {
+          storageAccessKey
+          accountName
+          shareName
+          prefix
+        }
+        google {
+          credentials
+          containerName
+          prefix
+        }
+        sharePoint {
+          authenticationType
+          accountName
+          libraryId
+          folderId
+          tenantId
+          refreshToken
+        }
+        oneDrive {
+          folderId
+          refreshToken
+        }
+        googleDrive {
+          folderId
+          refreshToken
+          clientId
+          clientSecret
+        }
+        readLimit
+      }
+      email {
+        type
+        includeAttachments
+        google {
+          type
+          refreshToken
+          clientId
+          clientSecret
+        }
+        microsoft {
+          type
+          refreshToken
+        }
+        readLimit
+      }
+      issue {
+        type
+        includeAttachments
+        jira {
+          uri
+          project
+          email
+          token
+          offset
+        }
+        linear {
+          key
+          project
+        }
+        github {
+          uri
+          repositoryOwner
+          repositoryName
+          refreshToken
+          personalAccessToken
+        }
+        readLimit
+      }
+      rss {
+        readLimit
+        uri
+      }
+      web {
+        readLimit
+        uri
+        includeFiles
+        allowedPaths
+        excludedPaths
+      }
+      reddit {
+        readLimit
+        subredditName
+      }
+      notion {
+        readLimit
+        token
+        identifiers
+        type
+      }
+      youtube {
+        readLimit
+        type
+        videoName
+        videoIdentifiers
+        channelIdentifier
+        playlistIdentifier
+      }
+      slack {
+        readLimit
+        type
+        token
+        channel
+        includeAttachments
+      }
+      discord {
+        readLimit
+        type
+        token
+        channel
+        includeAttachments
+      }
+      error
+      lastPostDate
+      lastReadDate
+      readCount
+      workflow {
+        id
+        name
+      }
+      schedulePolicy {
+        recurrenceType
+        repeatInterval
+      }
+    }
+  }
+}

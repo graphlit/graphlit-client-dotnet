@@ -1,0 +1,17 @@
+query GetCollection($id: ID!) {
+  collection(id: $id) {
+    id
+    name
+    creationDate
+    relevance
+    owner {
+      id
+    }
+    state
+    type
+    contents {
+      id
+      name
+    }
+  }
+}

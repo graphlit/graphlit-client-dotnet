@@ -1,0 +1,16 @@
+query QueryCredits($startDate: DateTime!, $duration: TimeSpan!) {
+  credits(startDate: $startDate, duration: $duration) {
+    correlationId
+    ownerId
+    credits
+    storageRatio
+    computeRatio
+    indexingRatio
+    preparationRatio
+    extractionRatio
+    enrichmentRatio
+    publishingRatio
+    searchRatio
+    conversationRatio
+  }
+}

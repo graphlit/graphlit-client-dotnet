@@ -1,0 +1,27 @@
+query QueryPersons($filter: PersonFilter) {
+  persons(filter: $filter) {
+    results {
+      id
+      name
+      alternateNames
+      creationDate
+      thing
+      relevance
+      address {
+        streetAddress
+        city
+        region
+        country
+        postalCode
+      }
+      email
+      givenName
+      familyName
+      phoneNumber
+      birthDate
+      title
+      occupation
+      education
+    }
+  }
+}

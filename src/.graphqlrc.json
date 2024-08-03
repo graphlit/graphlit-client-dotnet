@@ -1,0 +1,16 @@
+{
+  "schema": "schema.graphql",
+  "documents": "**/*.graphql",
+  "extensions": {
+    "strawberryShake": {
+        "name": "GraphlitClient",
+        "url": "https://data-scus.graphlit.io/api/v1/graphql",
+        "transportProfiles": [
+            {
+                "default": "Http",
+                "subscription": "WebSocket"
+            }
+        ]
+    }
+  }
+}

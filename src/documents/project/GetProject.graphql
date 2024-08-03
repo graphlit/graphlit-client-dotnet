@@ -1,0 +1,31 @@
+query GetProject {
+  project {
+    id
+    name
+    creationDate
+    modifiedDate
+    state
+    environmentType
+    platform
+    region
+    credits
+    lastCreditsDate
+    workflow {
+      id
+      name
+    }
+    specification {
+      id
+      name
+    }
+    quota {
+      storage
+      contents
+      credits
+      feeds
+      posts
+      conversations
+    }
+    callbackUri
+  }
+}

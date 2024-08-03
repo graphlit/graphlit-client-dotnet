@@ -1,0 +1,6 @@
+mutation DeletePersons($ids: [ID!]!, $isSynchronous: Boolean) {
+  deletePersons(ids: $ids, isSynchronous: $isSynchronous) {
+    id
+    state
+  }
+}

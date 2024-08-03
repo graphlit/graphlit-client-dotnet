@@ -1,0 +1,6 @@
+mutation DeleteAllCollections($filter: CollectionFilter, $isSynchronous: Boolean, $correlationId: String) {
+  deleteAllCollections(filter: $filter, isSynchronous: $isSynchronous, correlationId: $correlationId) {
+    id
+    state
+  }
+}
