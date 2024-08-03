@@ -7,6 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GraphlitClient", "src\Graph
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CC5B03B1-11F6-4396-97C5-67A0B0653D42}"
 	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
 		azure-pipelines.yaml = azure-pipelines.yaml
 		global.json = global.json
 		LICENSE = LICENSE

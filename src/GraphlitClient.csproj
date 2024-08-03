@@ -39,7 +39,6 @@
 	</ItemGroup>
 	
 	<Target Name="RunCustomCommand" BeforeTargets="BeforeBuild">
-		<Exec Command="dotnet tool restore" ContinueOnError="false" />
 		<Exec Command="dotnet graphql download https://data-scus.graphlit.io/api/v1/graphql" ContinueOnError="false" />
 	</Target>
 

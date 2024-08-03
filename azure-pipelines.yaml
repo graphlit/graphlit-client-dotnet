@@ -45,6 +45,14 @@ steps:
     nugetConfigPath: nuget.config
     verbosityRestore: 'Normal'
 
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet tool restore'
+  inputs:
+    command: 'custom'
+    custom: 'tool'
+    arguments: 'restore --verbosity detailed'
+    workingDirectory: '$(Build.SourcesDirectory)'  
+
 - task: VSBuild@1
   displayName: 'Build solution ${{ variables.solutionName }}'
   inputs:
@@ -55,7 +63,6 @@ steps:
     configuration: '$(BuildConfiguration)'
     maximumCpuCount: true
     msbuildArchitecture: x64
-    retryCount: 3
 
 - task: NuGetCommand@2
   displayName: 'NuGet push'
@@ -66,4 +73,3 @@ steps:
     externalFeedEndpoint: 'NuGetOrg'
     allowPackageConflicts: true
     verbosityPush: Normal
-    retryCount: 3
