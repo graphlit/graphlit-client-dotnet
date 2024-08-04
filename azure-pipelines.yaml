@@ -50,7 +50,7 @@ steps:
   inputs:
     command: 'custom'
     custom: 'tool'
-    arguments: 'restore --verbosity detailed'
+    arguments: 'restore'
     workingDirectory: '$(Build.SourcesDirectory)'  
 
 - task: VSBuild@1
@@ -68,7 +68,6 @@ steps:
   displayName: 'NuGet push'
   inputs:
     command: 'push'
-    packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
     nuGetFeedType: 'external'
     externalFeedEndpoint: 'NuGetOrg'
     allowPackageConflicts: true
