@@ -4,7 +4,7 @@
 		<Description>Graphlit Platform: Client Class Library</Description>
 		<VersionPrefix>1.0.0</VersionPrefix>
 		<Authors>Unstruk Data Inc.</Authors>
-		<TargetFrameworks>net8.0;net6.0</TargetFrameworks>
+		<TargetFrameworks>net6.0;net8.0</TargetFrameworks>
 		<AssemblyName>GraphlitClient</AssemblyName>
 		<PackageId>Graphlit</PackageId>
 		<IsPackable>true</IsPackable>
@@ -12,21 +12,8 @@
 		<PublishRepositoryUrl>true</PublishRepositoryUrl>
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
-		<PackageTags>Graphlit AI "Artificial Intelligence" SDK</PackageTags>
-	</PropertyGroup>
-
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-		<PlatformTarget>AnyCPU</PlatformTarget>
-		<DefineConstants>TRACE</DefineConstants>
-		<DebugType>full</DebugType>
-		<DebugSymbols>true</DebugSymbols>
-	</PropertyGroup>
-
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-		<PlatformTarget>AnyCPU</PlatformTarget>
-		<DefineConstants>TRACE;DEBUG</DefineConstants>
-		<DebugType>full</DebugType>
-		<DebugSymbols>true</DebugSymbols>
+		<PackageProjectUrl>https://www.graphlit.com</PackageProjectUrl>
+		<PackageTags>Graphlit AI Artificial-Intelligence SDK</PackageTags>
 	</PropertyGroup>
 	
 	<ItemGroup>
