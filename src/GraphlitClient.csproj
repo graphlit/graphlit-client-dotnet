@@ -8,6 +8,7 @@
 		<AssemblyName>GraphlitClient</AssemblyName>
 		<PackageId>Graphlit</PackageId>
 		<IsPackable>true</IsPackable>
+		<UseRidGraph>true</UseRidGraph>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<PublishRepositoryUrl>true</PublishRepositoryUrl>
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
