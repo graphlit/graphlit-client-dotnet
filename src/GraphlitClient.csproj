@@ -10,6 +10,7 @@
 		<IsPackable>true</IsPackable>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+		<PackageLicenseFile>LICENSE</PackageLicenseFile>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 	</PropertyGroup>
 
