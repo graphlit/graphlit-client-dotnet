@@ -33,9 +33,6 @@ steps:
     version: '8.0.x'
     includePreviewVersions: false
       
-- task: NuGetAuthenticate@1
-  displayName: 'NuGet Authenticate'
-  
 - task: DotNetCoreCLI@2
   displayName: 'dotnet restore'
   inputs:
@@ -43,7 +40,7 @@ steps:
     projects: '${{ variables.solutionName }}.sln'
     feedsToUse: config
     nugetConfigPath: nuget.config
-    verbosityRestore: 'Normal'
+    verbosityRestore: Normal
 
 - task: DotNetCoreCLI@2
   displayName: 'dotnet tool restore'
@@ -68,8 +65,7 @@ steps:
   displayName: 'NuGet push'
   inputs:
     command: 'push'
-    packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg'
     nuGetFeedType: 'external'
     externalFeedEndpoint: 'NuGetOrg'
     allowPackageConflicts: true
-    verbosityPush: Normal
+    verbosityPush: Detailed
