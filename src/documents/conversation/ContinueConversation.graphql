@@ -1,9 +1,9 @@
-mutation PromptSpecifications($prompt: String!, $ids: [ID!]!) {
-  promptSpecifications(prompt: $prompt, ids: $ids) {
-    specification {
+mutation ContinueConversation($id: ID!, $responses: [ConversationToolResponseInput!]!, $correlationId: String) {
+  continueConversation(id: $id, responses: $responses, correlationId: $correlationId) {
+    conversation {
       id
     }
-    messages {
+    message {
       role
       author
       message
@@ -124,6 +124,36 @@ mutation PromptSpecifications($prompt: String!, $ids: [ID!]!) {
       modelService
       model
     }
-    error
+    messageCount
+    facets {
+      type
+      value
+      range {
+        from
+        to
+      }
+      count
+      facet
+      observable {
+        type
+        observable {
+          id
+          name
+        }
+      }
+    }
+    graph {
+      nodes {
+        id
+        name
+        type
+        metadata
+      }
+      edges {
+        from
+        to
+        relation
+      }
+    }
   }
 }
