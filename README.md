@@ -11,6 +11,14 @@ Before you begin, ensure you have the following:
 - .NET 6.0 or .NET 8.0 installed on your system.
 - An active account on the [Graphlit Platform](https://portal.graphlit.dev) with access to the API settings dashboard.
 
+## Building
+
+When building the Graphlit Client, you must install the StrawberryShake tools for API code-generation.  This is only required for building the SDK.
+
+```bash
+dotnet tool install StrawberryShake.Tools --local
+```
+
 ## Installation
 
 To install the Graphlit Client, use nuget:
