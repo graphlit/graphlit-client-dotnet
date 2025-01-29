@@ -20,8 +20,9 @@
 	
 	<ItemGroup>
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-		<PackageReference Include="StrawberryShake.Server" Version="13.9.14" />
-		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.1.2" />
+		<PackageReference Include="StrawberryShake.Server" Version="14.3.0" />
+		<!-- NOTE: can't bring in newer than 8.2.1 or it references .NET 9 assemblies -->
+		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.2.1" />
 	</ItemGroup>
 
 	<ItemGroup>
