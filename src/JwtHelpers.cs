@@ -7,7 +7,7 @@ namespace GraphlitClient
 {
     internal class JwtHelpers
     {
-        public static string GenerateJwt(string organizationId = null, string environmentId = null, string jwtSecret = null, string ownerId = null)
+        public static string GenerateJwt(string organizationId = null, string environmentId = null, string jwtSecret = null, string ownerId = null, string userId = null)
         {
             const string DEFAULT_ISSUER = "graphlit";
             const string DEFAULT_AUDIENCE = "https://portal.graphlit.io";
@@ -21,6 +21,9 @@ namespace GraphlitClient
 
             if (String.IsNullOrEmpty(ownerId))
                 ownerId = Environment.GetEnvironmentVariable("GRAPHLIT_OWNER_ID");
+
+            if (String.IsNullOrEmpty(userId))
+                userId = Environment.GetEnvironmentVariable("GRAPHLIT_USER_ID");
 
             if (String.IsNullOrEmpty(jwtSecret))
                 jwtSecret = Environment.GetEnvironmentVariable("GRAPHLIT_JWT_SECRET");
@@ -56,6 +59,9 @@ namespace GraphlitClient
 
             if (!String.IsNullOrEmpty(ownerId))
                 options["x-graphlit-owner-id"] = ownerId;
+
+            if (!String.IsNullOrEmpty(userId))
+                options["x-graphlit-user-id"] = userId;
 
             // Create the claims
             var claims = new Claim[]

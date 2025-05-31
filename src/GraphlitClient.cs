@@ -11,13 +11,13 @@ public class Graphlit
 
     public IGraphlitClient Client => _client.Value;
 
-    public Graphlit(IHttpClientFactory httpClientFactory, string organizationId = null, string environmentId = null, string jwtSecret = null, string ownerId = null, Uri apiUri = null)
+    public Graphlit(IHttpClientFactory httpClientFactory, string organizationId = null, string environmentId = null, string jwtSecret = null, string ownerId = null, string userId = null, Uri apiUri = null)
     {
         string token;
 
         try
         {
-            token = JwtHelpers.GenerateJwt(organizationId, environmentId, jwtSecret, ownerId);
+            token = JwtHelpers.GenerateJwt(organizationId, environmentId, jwtSecret, ownerId, userId);
         }
         catch (Exception e)
         {
@@ -39,13 +39,13 @@ public class Graphlit
             }));
     }
 
-    public Graphlit(HttpClient httpClient, string organizationId = null, string environmentId = null, string jwtSecret = null, string ownerId = null, Uri apiUri = null)
+    public Graphlit(HttpClient httpClient, string organizationId = null, string environmentId = null, string jwtSecret = null, string ownerId = null, string userId = null, Uri apiUri = null)
     {
         string token;
 
         try
         {
-            token = JwtHelpers.GenerateJwt(organizationId, environmentId, jwtSecret, ownerId);
+            token = JwtHelpers.GenerateJwt(organizationId, environmentId, jwtSecret, ownerId, userId);
         }
         catch (Exception e)
         {
