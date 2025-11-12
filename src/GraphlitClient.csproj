@@ -4,7 +4,7 @@
 		<Description>Graphlit Platform: Client Class Library</Description>
 		<VersionPrefix>1.0.0</VersionPrefix>
 		<Authors>Unstruk Data Inc.</Authors>
-		<TargetFrameworks>net6.0;net8.0;net9.0</TargetFrameworks>
+		<TargetFrameworks>net8.0;net9.0</TargetFrameworks>
 		<AssemblyName>GraphlitClient</AssemblyName>
 		<PackageId>Graphlit</PackageId>
 		<IsPackable>true</IsPackable>
@@ -19,13 +19,13 @@
 	</PropertyGroup>
 	
 	<ItemGroup>
-		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(TargetFramework)' == 'net6.0'">
-		<PackageReference Include="StrawberryShake.Server" Version="14.3.0" />
+		<PackageReference Include="StrawberryShake.Server" Version="15.1.11" />
 		<!-- NOTE: can't bring in newer than 8.2.1 or it references .NET 9 assemblies -->
-		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.2.1" />
+		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.14.0" />
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(TargetFramework)' == 'net8.0'">
