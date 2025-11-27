@@ -27,6 +27,13 @@ steps:
       Write-Host "##vso[task.setvariable variable=NUGET_CERT_REVOCATION_MODE;]offline"
 
 - task: UseDotNet@2
+  displayName: 'Use .NET 9.0 SDK'
+  inputs:
+    packageType: 'sdk'
+    version: '9.0.x'
+    includePreviewVersions: false
+
+- task: UseDotNet@2
   displayName: 'Use .NET 10.0 SDK'
   inputs:
     packageType: 'sdk'
