@@ -4,7 +4,7 @@ trigger:
       - main
 
 pool:
-  vmImage: "windows-2022"
+  vmImage: "windows-2025"
   demands:
   - msbuild
   - visualstudio
@@ -27,10 +27,10 @@ steps:
       Write-Host "##vso[task.setvariable variable=NUGET_CERT_REVOCATION_MODE;]offline"
 
 - task: UseDotNet@2
-  displayName: 'Use .NET 9.0 SDK'
+  displayName: 'Use .NET 10.0 SDK'
   inputs:
     packageType: 'sdk'
-    version: '9.0.102'
+    version: '10.0.100'
     includePreviewVersions: false
       
 - task: DotNetCoreCLI@2
