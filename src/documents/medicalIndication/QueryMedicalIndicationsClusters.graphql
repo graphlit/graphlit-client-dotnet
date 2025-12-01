@@ -1,5 +1,5 @@
-query QueryRepos($filter: RepoFilter, $correlationId: String) {
-  repos(filter: $filter, correlationId: $correlationId) {
+query QueryMedicalIndicationsClusters($filter: MedicalIndicationFilter, $clusters: EntityClustersInput, $correlationId: String) {
+  medicalIndications(filter: $filter, clusters: $clusters, correlationId: $correlationId) {
     results {
       id
       name
@@ -49,6 +49,15 @@ query QueryRepos($filter: RepoFilter, $correlationId: String) {
         h3r13
         h3r14
         h3r15
+      }
+    }
+    clusters {
+      clusters {
+        entities {
+          id
+          name
+        }
+        similarity
       }
     }
   }
