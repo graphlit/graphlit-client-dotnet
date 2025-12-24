@@ -5,9 +5,6 @@ trigger:
 
 pool:
   vmImage: "windows-2025"
-  demands:
-  - msbuild
-  - visualstudio
 
 name: $(Year:yyyy).$(Month).$(DayOfMonth)$(Rev:.r)
 
@@ -57,16 +54,12 @@ steps:
     arguments: 'restore'
     workingDirectory: '$(Build.SourcesDirectory)'  
 
-- task: VSBuild@1
-  displayName: 'Build solution ${{ variables.solutionName }}'
+- task: DotNetCoreCLI@2
+  displayName: 'Build and Pack solution ${{ variables.solutionName }}'
   inputs:
-    solution: '${{ variables.solutionName }}.sln'
-    vsVersion: 'latest'
-    msbuildArgs: '/t:Build,Pack /p:Version=$(Build.BuildNumber) /p:PackageVersion=$(Build.BuildNumber) /p:PackageOutputPath=$(Build.ArtifactStagingDirectory)'
-    platform: '$(BuildPlatform)'
-    configuration: '$(BuildConfiguration)'
-    maximumCpuCount: true
-    msbuildArchitecture: x64
+    command: 'build'
+    projects: '${{ variables.solutionName }}.sln'
+    arguments: '-c $(BuildConfiguration) /p:Version=$(Build.BuildNumber) /p:PackageVersion=$(Build.BuildNumber) /p:PackageOutputPath=$(Build.ArtifactStagingDirectory) /t:Build,Pack'
 
 - task: NuGetCommand@2
   displayName: 'NuGet push'
