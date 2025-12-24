@@ -49,7 +49,7 @@
 		<None Include="..\README.md" Pack="true" PackagePath="\" />
 	</ItemGroup>
 	
-	<Target Name="RunCustomCommand" BeforeTargets="BeforeBuild" Condition="'$(TargetFramework)' == 'net8.0'">
+	<Target Name="DownloadSchema" BeforeTargets="DispatchToInnerBuilds">
 		<Exec Command="dotnet graphql download https://data-scus.graphlit.io/api/v1/graphql" ContinueOnError="false" />
 	</Target>
 
