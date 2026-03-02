@@ -147,6 +147,8 @@ query GetConversation($id: ID!, $correlationId: String) {
         mimeType
         uri
       }
+      thinkingContent
+      thinkingSignature
     }
     transcriptUri
     turns {
@@ -162,6 +164,9 @@ query GetConversation($id: ID!, $correlationId: String) {
       timestamp
       text
       relevance
+    }
+    agent {
+      id
     }
     persona {
       id

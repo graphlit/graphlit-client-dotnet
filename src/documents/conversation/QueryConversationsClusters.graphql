@@ -149,6 +149,8 @@ query QueryConversationsClusters($filter: ConversationFilter, $clusters: EntityC
           mimeType
           uri
         }
+        thinkingContent
+        thinkingSignature
       }
       transcriptUri
       turns {
@@ -164,6 +166,9 @@ query QueryConversationsClusters($filter: ConversationFilter, $clusters: EntityC
         timestamp
         text
         relevance
+      }
+      agent {
+        id
       }
       persona {
         id

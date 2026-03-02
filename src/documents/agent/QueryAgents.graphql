@@ -1,5 +1,5 @@
-query QueryAlerts($filter: AlertFilter, $correlationId: String) {
-  alerts(filter: $filter, correlationId: $correlationId) {
+query QueryAgents($filter: AgentFilter, $correlationId: String) {
+  agents(filter: $filter, correlationId: $correlationId) {
     results {
       id
       name
@@ -12,9 +12,7 @@ query QueryAlerts($filter: AlertFilter, $correlationId: String) {
       state
       correlationId
       type
-      summaryPrompt
-      publishPrompt
-      view {
+      specification {
         id
       }
       filter {
@@ -111,93 +109,14 @@ query QueryAlerts($filter: AlertFilter, $correlationId: String) {
         collectionMode
         observationMode
       }
-      integration {
-        type
-        uri
-        slack {
-          token
-          channel
-        }
-        email {
-          from
-          subject
-          to
-        }
-        twitter {
-          consumerKey
-          consumerSecret
-          accessTokenKey
-          accessTokenSecret
-        }
-        mcp {
-          token
-          type
-        }
-      }
-      publishing {
-        type
-        elevenLabs {
-          model
-          voice
-        }
-        openAIImage {
-          model
-          count
-          seed {
-            id
-          }
-          size
-        }
-        googleImage {
-          model
-          count
-          seed {
-            id
-          }
-          resolution
-          aspectRatio
-        }
-        quiverImage {
-          model
-          count
-          seed {
-            id
-          }
-          instructions
-        }
-        openAIVideo {
-          model
-          seconds
-          size
-          seed {
-            id
-          }
-        }
-        googleVideo {
-          model
-          seconds
-          aspectRatio
-          seed {
-            id
-          }
-        }
-        parallel {
-          processor
-        }
-      }
-      summarySpecification {
-        id
-      }
-      publishSpecification {
-        id
-      }
       schedulePolicy {
         recurrenceType
         repeatInterval
         cron
         timeZoneId
       }
-      lastAlertDate
+      timeout
+      scratchpad
     }
   }
 }

@@ -140,6 +140,8 @@ mutation CompleteConversation($completion: String!, $id: ID!, $completionTime: T
         mimeType
         uri
       }
+      thinkingContent
+      thinkingSignature
     }
     messageCount
     facets {
@@ -191,6 +193,7 @@ mutation CompleteConversation($completion: String!, $id: ID!, $completionTime: T
       formattedSources
       formattedObservables
       formattedInstructions
+      formattedScratchpad
       formattedTools
       formattedPersona
       specification
@@ -331,6 +334,8 @@ mutation CompleteConversation($completion: String!, $id: ID!, $completionTime: T
           mimeType
           uri
         }
+        thinkingContent
+        thinkingSignature
       }
     }
   }
