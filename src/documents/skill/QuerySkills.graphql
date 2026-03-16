@@ -1,0 +1,27 @@
+query QuerySkills($filter: SkillFilter, $correlationId: String) {
+  skills(filter: $filter, correlationId: $correlationId) {
+    results {
+      id
+      name
+      creationDate
+      modifiedDate
+      relevance
+      owner {
+        id
+      }
+      state
+      correlationId
+      text
+      skillOwner
+      arguments {
+        name
+        description
+        required
+      }
+      collections {
+        id
+        name
+      }
+    }
+  }
+}

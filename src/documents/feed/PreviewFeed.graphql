@@ -1,0 +1,18 @@
+mutation PreviewFeed($feed: FeedPreviewInput!) {
+  previewFeed(feed: $feed) {
+    isComplete
+    itemCount
+    estimatedBytes
+    contentTypeSummary {
+      contentType
+      fileType
+      itemCount
+      totalBytes
+    }
+    observableTypeSummary {
+      observableType
+      itemCount
+    }
+    warnings
+  }
+}

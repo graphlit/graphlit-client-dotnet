@@ -73,6 +73,7 @@ query QueryFeeds($filter: FeedFilter, $correlationId: String) {
         }
         googleDrive {
           authenticationType
+          driveId
           folderId
           files
           refreshToken
@@ -129,6 +130,8 @@ query QueryFeeds($filter: FeedFilter, $correlationId: String) {
           excludeSentItems
           includeDeletedItems
           inboxOnly
+          beforeDate
+          afterDate
           authenticationType
           refreshToken
           clientId
@@ -144,6 +147,8 @@ query QueryFeeds($filter: FeedFilter, $correlationId: String) {
           excludeSentItems
           includeDeletedItems
           inboxOnly
+          beforeDate
+          afterDate
           authenticationType
           refreshToken
           clientId
@@ -264,6 +269,57 @@ query QueryFeeds($filter: FeedFilter, $correlationId: String) {
           apiToken
           boardId
         }
+        productlane {
+          apiKey
+          workspaceId
+        }
+        beforeDate
+        afterDate
+        readLimit
+      }
+      initiative {
+        type
+        jira {
+          authenticationType
+          uri
+          project
+          email
+          token
+          offset
+          clientId
+          clientSecret
+          refreshToken
+          connector {
+            id
+          }
+          cloudId
+        }
+        github {
+          authenticationType
+          uri
+          repositoryOwner
+          repositoryName
+          personalAccessToken
+          clientId
+          clientSecret
+          refreshToken
+          connector {
+            id
+          }
+          authorizationId
+        }
+        linear {
+          authenticationType
+          key
+          clientId
+          clientSecret
+          refreshToken
+          connector {
+            id
+          }
+        }
+        beforeDate
+        afterDate
         readLimit
       }
       commit {
@@ -281,6 +337,8 @@ query QueryFeeds($filter: FeedFilter, $correlationId: String) {
             id
           }
         }
+        beforeDate
+        afterDate
         readLimit
       }
       pullRequest {
@@ -298,6 +356,8 @@ query QueryFeeds($filter: FeedFilter, $correlationId: String) {
             id
           }
         }
+        beforeDate
+        afterDate
         readLimit
       }
       crm {
@@ -355,6 +415,10 @@ query QueryFeeds($filter: FeedFilter, $correlationId: String) {
           connector {
             id
           }
+          type
+        }
+        productlane {
+          apiKey
           type
         }
         readLimit
@@ -592,6 +656,8 @@ query QueryFeeds($filter: FeedFilter, $correlationId: String) {
           id
         }
         channel
+        beforeDate
+        afterDate
         includeAttachments
       }
       microsoftTeams {
@@ -604,6 +670,8 @@ query QueryFeeds($filter: FeedFilter, $correlationId: String) {
         connector {
           id
         }
+        beforeDate
+        afterDate
         teamId
         channelId
         includeAttachments
@@ -662,6 +730,12 @@ query QueryFeeds($filter: FeedFilter, $correlationId: String) {
         state
         includeNotes
         includeAttachments
+      }
+      productlane {
+        readLimit
+        type
+        apiKey
+        workspaceId
       }
       research {
         readLimit
