@@ -9,6 +9,9 @@ query LookupContents($ids: [ID!]!, $correlationId: String) {
         id
       }
       state
+      user {
+        id
+      }
       originalDate
       finishedDate
       fileCreationDate
@@ -382,6 +385,10 @@ query LookupContents($ids: [ID!]!, $correlationId: String) {
         languages
       }
       feed {
+        id
+        name
+      }
+      agent {
         id
         name
       }

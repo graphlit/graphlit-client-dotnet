@@ -8,6 +8,9 @@ query GetFeed($id: ID!, $correlationId: String) {
       id
     }
     state
+    user {
+      id
+    }
     identifier
     description
     correlationId
@@ -495,6 +498,18 @@ query GetFeed($id: ID!, $correlationId: String) {
       }
       fathom {
         apiKey
+        afterDate
+        beforeDate
+        type
+      }
+      zoom {
+        authenticationType
+        clientId
+        clientSecret
+        refreshToken
+        connector {
+          id
+        }
         afterDate
         beforeDate
         type

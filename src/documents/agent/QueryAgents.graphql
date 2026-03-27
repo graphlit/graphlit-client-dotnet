@@ -12,6 +12,7 @@ query QueryAgents($filter: AgentFilter, $correlationId: String) {
       state
       correlationId
       type
+      description
       specification {
         id
       }
@@ -34,9 +35,13 @@ query QueryAgents($filter: AgentFilter, $correlationId: String) {
         instructions
         label
       }
+      connectors {
+        id
+      }
       timeout
       prompt
       scratchpad
+      callbackUri
     }
   }
 }

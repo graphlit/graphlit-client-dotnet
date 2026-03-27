@@ -8,6 +8,9 @@ query GetWorkflow($id: ID!, $correlationId: String) {
       id
     }
     state
+    user {
+      id
+    }
     ingestion {
       if {
         types
@@ -210,6 +213,9 @@ query GetWorkflow($id: ID!, $correlationId: String) {
           crustdata {
             isRealtime
           }
+          waterfall {
+            depth
+          }
         }
       }
       entityResolution {
@@ -264,6 +270,7 @@ query GetWorkflow($id: ID!, $correlationId: String) {
           type
         }
       }
+      observableTypes
     }
   }
 }

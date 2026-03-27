@@ -8,6 +8,9 @@ query GetConnector($id: ID!, $correlationId: String) {
       id
     }
     state
+    user {
+      id
+    }
     type
     authentication {
       type
@@ -57,6 +60,24 @@ query GetConnector($id: ID!, $correlationId: String) {
       mcp {
         token
         type
+      }
+    }
+    channel {
+      type
+      slack {
+        botToken
+        signingSecret
+        appId
+      }
+      teams {
+        botId
+        botPassword
+        tenantId
+      }
+      discord {
+        botToken
+        applicationId
+        publicKey
       }
     }
   }
