@@ -1,0 +1,9 @@
+mutation UpdateAgentFocus($id: ID!, $focus: String) {
+  updateAgentFocus(id: $id, focus: $focus) {
+    id
+    name
+    state
+    type
+    mode
+  }
+}

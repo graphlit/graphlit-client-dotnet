@@ -1,0 +1,9 @@
+mutation UpdateAgentScratchpad($id: ID!, $scratchpad: String!) {
+  updateAgentScratchpad(id: $id, scratchpad: $scratchpad) {
+    id
+    name
+    state
+    type
+    mode
+  }
+}
