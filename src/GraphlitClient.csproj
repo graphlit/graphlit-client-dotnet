@@ -30,7 +30,7 @@
 
 	<ItemGroup Condition="'$(TargetFramework)' == 'net8.0'">
 		<PackageReference Include="StrawberryShake.Server" Version="15.1.14" />
-		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.17.0" />
+		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.18.0" />
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(TargetFramework)' == 'net9.0'">

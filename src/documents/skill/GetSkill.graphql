@@ -13,9 +13,13 @@ query GetSkill($id: ID!, $correlationId: String) {
     }
     description
     identifier
-    correlationId
+    uri
     text
     skillOwner
+    feed {
+      id
+      name
+    }
     arguments {
       name
       description
